@@ -1,5 +1,5 @@
     import { Swiper, SwiperSlide } from 'swiper/react';
-    import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow } from 'swiper/modules';
+    import { Pagination, EffectCoverflow } from 'swiper/modules';
     import AboutUS from './slideCards/aboutUs.jpg';
     import Contact from './slideCards/contactUs.jpg';
     import Jetski from './slideCards/jetski.png';
