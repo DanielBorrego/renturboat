@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+.reason{
+    display: flex;
+    flex-direction: column;
+    height: 168px;
+    width: 250px;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+.reason div{
+    width: 100%;
+    height: 100px;
+}
+.reason img{
+    width: 100%;
+    height: 100%;
+    /*object-fit: cover;*/
+    object-fit: contain;
+    display: block;
+}
+.reason p{
+    font-size: 15px;
+    font-weight: 100;
+    font-family: Roboto;
+}

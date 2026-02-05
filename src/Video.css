@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+a {
+    text-decoration: none;
+    color: inherit; /* Opcional: mantiene el color del texto actual */
+}
+/*a:hover{
+    text-decoration: none;
+    color: inherit; /*Opcional: mantiene el color del texto actual 
+}*/
+.container {
+    width: 100%;
+    height: 650px;
+    position: relative; 
+    display: flex;
+    align-items: center; 
+    overflow: hidden; 
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.text {
+    max-width: 663px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 150px;
+    margin-right: 550px;
+    z-index: 1;
+}
+
+.text h1 {
+    font-size: 64px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: #FFFF;
+}
+
+.text h2 {
+    font-size: 36px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Bold */
+    margin-bottom: 20px;
+    color: #FFFF;
+}
+
+.text p {
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    color: #FFFF;
+}
+.text p:hover{color: black;}
+
+.rentWithUsContainer{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+.rentWithUsContainer h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    font-weight: 100;
+}
+.rentWithUsContainer p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100px;
+}
+
+.theReassons{
+    width: 100%;
+    height: 356px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.theImages{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.UsButton{
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    border: 0;
+    box-shadow: 
+        -6px -6px 10px rgba(255, 255, 255, 1), /* Top-Left White Highlight */
+        6px 6px 10px rgba(174, 174, 192, 0.4); /* Bottom-Right Dark Shadow */
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #6a6a6a;
+    cursor: pointer;
+    outline: none;
+}
+.UsButton:active {
+    box-shadow: 
+        inset -4px -4px 8px rgba(255, 255, 255, 0.8),
+        inset 4px 4px 8px rgba(174, 174, 192, 0.4);
+}
+
+.FleetContainerTitle{
+    width: 100%;
+    height: 120px;
+    /*background-color: rgba(182, 147, 147, 0.263);*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.29);
+    /*border-radius: 16px;*/
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.FleetContainerTitle h1{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 381;
+    font-size: 61px;
+}
+
+.FleetContainer{
+    width: auto;
+    height: 1100px;
+    background: rgba(255, 255, 255, 0.29);
+    
+}
+.FleetContainer div{
+    margin-top: 30px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 50px;
+}
+
+/*----------------------    ----------------------- -   ------------------*/
+
+/*----------------------    ----------------------- -   ------------------*/

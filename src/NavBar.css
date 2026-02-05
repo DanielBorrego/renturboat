@@ -1,0 +1,104 @@
+    a {
+    text-decoration: none;
+    color: inherit; /* Opcional: mantiene el color del texto actual */
+}
+
+    .navbar {
+    height: 44px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background-color: rgba(244, 245, 247, 0.25);
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-family: sans-serif;
+    }
+
+    .nav-logo {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+    }
+
+    .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    }
+
+    .nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.95rem;
+    font-weight: 500;
+    }
+
+    .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    }
+
+    .lang-text {
+        color: black;
+    font-size: 0.9rem;
+    font-weight: 500;
+    }
+
+    /* El botón ovalado gris de tu dibujo */
+    .login-btn {
+    background-color:  rgba(244, 245, 247, 0.25);
+    border: none;
+    border-radius: 25px; /* Hace el efecto de píldora/óvalo */
+    padding: 5px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s;
+    }
+
+    .login-btn:hover {
+    background-color: #d0d0d0;
+    }
+
+    .cart-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    }
+
+    .dropdown-container {
+        color: black;
+    position: relative;
+    }
+
+    .dropdown-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 180px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .dropdown-item {
+    margin: 0;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: black;
+    }
+
+    .dropdown-item p a:hover {
+    color: rgb(2, 60, 148);
+    }
