@@ -260,7 +260,6 @@ a {
 
     .FleetContainer div {
         flex-direction: column;
-        margin-left: 0;
         align-items: center;
         row-gap: 30px;
     }
