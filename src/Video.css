@@ -252,6 +252,7 @@ a {
 
     .FleetContainerTitle h1 {
         font-size: 36px;
+        align-items: center; /*para que se centre en movil*/
     }
 
     .FleetContainer {
@@ -260,8 +261,8 @@ a {
 
     .FleetContainer div {
         flex-direction: column;
+        margin-left: 0;
         align-items: center;
-        /*margin-left: 0;*/
         row-gap: 30px;
     }
 }
