@@ -1,13 +1,25 @@
-CREATE TYPE AS TITULACIO_TIPUS AS ENUM (
-    'Llcencia de navegacio',
-    'PNB',
-    'PER',
-    'Patro de Yate'
+CREATE DATABASE IF NOT EXISTS renturboat;
+USE renturboat;
+
+CREATE TABLE barcos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    model VARCHAR(100) NOT NULL,
+    any_construccio INT NOT NULL,
+    capacitat INT NOT NULL,
+    titulacio ENUM(
+        'Llicencia de navegacio',
+        'PNB',
+        'PER',
+        'Patro de Yate'
+    ) NOT NULL,
+    preu INT NOT NULL
 );
-CREATE TYPE usuari AS (
-    DNI VARCHAR(9),
-    nom VARCHAR(100),
-    cognoms VARCHAR(100),
+
+CREATE TABLE client (
+    DNI VARCHAR(9) PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    cognoms VARCHAR(100) NOT NULL,
     data_naixement DATE,
     telefon VARCHAR(15),
     email VARCHAR(100) UNIQUE,
@@ -16,31 +28,36 @@ CREATE TYPE usuari AS (
     poblacio VARCHAR(100),
     codi_postal VARCHAR(10)
 );
-CREATE TABLE barcos (
-    id SERIAL PRIMARY KEY,
+
+CREATE TABLE empleat (
+    DNI VARCHAR(9) PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
-    MODEL VARCHAR(100) NOT NULL,
-    any_construccio INT NOT NULL,
-    capacitat INT NOT NULL,
-    TITULACIO TITULACIO_TIPUS NOT NULL,
-    Preu INT NOT NULL
+    cognoms VARCHAR(100) NOT NULL,
+    data_naixement DATE,
+    telefon VARCHAR(15),
+    email VARCHAR(100) UNIQUE,
+    contrasenya VARCHAR(100),
+    adreca VARCHAR(200),
+    poblacio VARCHAR(100),
+    codi_postal VARCHAR(10)
 );
 
-CREATE TABLE client OF usuari;
-ADD PRIMARY KEY (DNI) TO client;
-
-CREATE TABLE empleat OF usuari;
-ADD PRIMARY KEY (DNI) TO empleat;
-
-CREATE TABLE resreva (
-    id INT PRIMARY KEY,
-    client_reservat FOREIGN KEY (DNI) REFERENCES client,
-    barca_reservada FOREIGN KEY (id) REFERENCES barco
+CREATE TABLE reserva (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    client_dni VARCHAR(9) NOT NULL,
+    barco_id INT NOT NULL,
+    data_inici DATE,
+    data_fi DATE,
+    FOREIGN KEY (client_dni) REFERENCES client(DNI),
+    FOREIGN KEY (barco_id) REFERENCES barcos(id)
 );
 
 CREATE TABLE resenya (
-    id SERIAL PRIMARY KEY,
-    comentari VARCHAR(200) NOT NULL,
-    client FOREIGN KEY(DNI) REFERENCES client,
-    barca FOREIGN KEY(id) REFERENCES barca
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    comentari VARCHAR(1000) NOT NULL,
+    client_dni VARCHAR(9) NOT NULL,
+    barco_id INT NOT NULL,
+    puntuacio INT,
+    FOREIGN KEY (client_dni) REFERENCES client(DNI),
+    FOREIGN KEY (barco_id) REFERENCES barcos(id)
 );
