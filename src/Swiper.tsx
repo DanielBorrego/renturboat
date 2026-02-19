@@ -28,33 +28,39 @@
     ];
 
         return (
-        <div className="gallery-container">
-            <Swiper
-                effect={'coverflow'}
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={'auto'}
-                initialSlide={2}
-                coverflowEffect={{
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-                }}
-                pagination={true}
-                modules={[EffectCoverflow, Pagination]}
-                className="mySwiper"
-            >
-            {slides.map((slide, index) => (
-                <SwiperSlide key={index} className="card-slide">
-                    <a href="">
-                    <img src={slide.img} alt={slide.text} />
-                    <p>{slide.text}</p>
-                    </a>
-                </SwiperSlide>
-            ))}
-        </Swiper>
-        </div>
+            <div className="gallery-container">
+                <Swiper
+                    effect={'coverflow'}
+                    grabCursor={true}
+                    centeredSlides={true}
+                    slidesPerView={'auto'}
+                    initialSlide={2}
+                    coverflowEffect={{
+                        rotate: 50,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                    }}
+                    pagination={{
+                        el: '.custom-pagination',
+                        clickable: true,
+                    }}
+                    modules={[EffectCoverflow, Pagination]}
+                    className="mySwiper"
+                >
+                    {slides.map((slide, index) => (
+                        <SwiperSlide key={index} className="card-slide">
+                            <a href="">
+                                <img src={slide.img} alt={slide.text} />
+                                <p>{slide.text}</p>
+                            </a>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                {/* Paginación externa */}
+                <div className="custom-pagination"></div>
+            </div>
     );
     };

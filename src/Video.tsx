@@ -48,7 +48,7 @@ export const ContVideo = () =>{
                     <Reason img={Compas} name='Freedom to Explore at Their Own Pace'/>
                     <Reason img={Sunset} name='Unforgettable Memories Guaranteed'/>
                 </div>
-                <button className='UsButton'> US </button>
+                {/*<button className='UsButton'> ABOUT US </button>*/}
             </div>
             <div className='FleetContainerTitle'>
                 <h1>OUR FLEET</h1>

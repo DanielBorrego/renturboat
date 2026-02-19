@@ -111,24 +111,24 @@ a {
 /* ---------------- BUTTON ---------------- */
 
 .UsButton {
+    background-color: #fff;
+    margin-top: 50px;
     width: 150px;
-    height: 50px;
-    border-radius: 50px;
-    border: 0;
-    box-shadow: 
-        -6px -6px 10px rgba(255, 255, 255, 1),
-        6px 6px 10px rgba(174, 174, 192, 0.4);
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.479);
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: #6a6a6a;
     cursor: pointer;
     outline: none;
+    transition: height 0.5s;
+    transition: width 0.5s;
 }
 
 .UsButton:active {
-    box-shadow: 
-        inset -4px -4px 8px rgba(255, 255, 255, 0.8),
-        inset 4px 4px 8px rgba(174, 174, 192, 0.4);
+    width: 151px;
+    height: 37px;
 }
 
 /* ---------------- FLEET TITLE ---------------- */
