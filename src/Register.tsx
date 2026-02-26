@@ -1,5 +1,5 @@
 import './Register.css';
-import { useState, type FormEvent, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import videoWelcome from './welcome_Register.mp4';
 import { Link } from 'react-router-dom';
 
