@@ -4,20 +4,22 @@
 }
 
     .navbar {
-    height: 44px;
+    position: fixed; /* Cambiamos sticky por fixed */
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 44px;
     display: flex;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
-    background-color: rgba(244, 245, 247, 0.25);
     border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    z-index: 1000; /* Mantiene el nav por encima de todo */
     font-family: sans-serif;
-    }
+    background-color: rgba(244, 245, 247, 0.95);
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho del 100% */
+}
 
     .nav-logo {
     width: 50px;

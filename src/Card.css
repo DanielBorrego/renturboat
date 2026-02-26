@@ -1,27 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+
+/* Responsive card for reasons / features */
 .reason{
     display: flex;
     flex-direction: column;
-    height: 168px;
-    width: 250px;
+    width: 100%;           /* take available width from parent */
+    max-width: 250px;      /* keep the original intended card width on larger screens */
+    box-sizing: border-box;
     overflow: hidden;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 1.25rem;      /* 20px -> responsive rem */
+    gap: 0.5rem;
+    background: transparent;
 }
-.reason div{
+
+.reason > div{
     width: 100%;
-    height: 100px;
+    /* Use an intrinsic aspect ratio so images keep a predictable height without hardcoding px */
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    display: block;
 }
+
 .reason img{
     width: 100%;
     height: 100%;
-    /*object-fit: cover;*/
-    object-fit: contain;
+    object-fit: cover;     /* fill the container while keeping aspect ratio */
     display: block;
 }
+
 .reason p{
-    font-size: 15px;
+    font-size: 0.95rem;    /* ~15px but scales with root font size */
     font-weight: 100;
-    font-family: Roboto;
+    font-family: Roboto, system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial;
+    margin: 0;
+    line-height: 1.25;
+}
+
+/* Make multiple cards layout friendly: if parent reduces width, cards will shrink naturally.
+   Add media queries to tweak sizing on small screens. */
+@media (max-width: 900px){
+    .reason{
+        max-width: 220px;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px){
+    .reason{
+        max-width: 100%;     /* allow full width on very small screens */
+        padding: 0.75rem;
+        align-items: center;
+    }
+    .reason > div{
+        aspect-ratio: 16 / 9; /* make image wider on mobile */
+    }
+    .reason p{
+        font-size: 0.9rem;
+        color: black;
+    }
+}
+
+/* Optional utility: let a horizontal layout be used on very wide containers */
+@media (min-width: 1200px){
+    .reason{
+        max-width: 280px;
+    }
 }

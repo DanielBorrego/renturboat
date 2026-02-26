@@ -1,5 +1,6 @@
 import './Register.css';
-import { useState, type FormEvent } from 'react';
+import { useState, type FormEvent, useEffect } from 'react';
+import videoWelcome from './welcome_Register.mp4';
 import { Link } from 'react-router-dom';
 
 export const Register = () =>{
@@ -44,10 +45,36 @@ export const Register = () =>{
             setMessage("Error al conectar con el servidor");
         }
     }
+
+    const [showVideo, setShowVideo] = useState(false);
+    useEffect(() => {
+        const videoShown = sessionStorage.getItem("welcomeVideoShown");
+
+        if (!videoShown) {
+            setShowVideo(true);
+
+            setTimeout(() => {
+                setShowVideo(false);
+                sessionStorage.setItem("welcomeVideoShown", "true");
+            }, 4000); // 4 segundos
+        }
+    }, []);
     return(
         <div className='container'>
+            {showVideo && (
+            <div className="video-overlay">
+                <video
+                    src={videoWelcome}
+                    autoPlay
+                    muted
+                    playsInline
+                />
+            </div>
+        )}
             <form className='register' onSubmit={submit}>
-
+                <h1 style={{ textAlign: 'center', fontSize: '28px', fontWeight: 600, marginBottom: '20px' }}>
+                Create Account
+                </h1>
                 <label>DNI</label>
                 <input
                     type="text"
@@ -55,6 +82,7 @@ export const Register = () =>{
                     pattern='^[0-9]{8}[A-Z]$'
                     title="Enter a valid ID"
                     required
+                    maxLength={9}
                     value={dni}
                     onChange={(e) => setDni(e.target.value)}
                 />
@@ -91,6 +119,7 @@ export const Register = () =>{
                 <input
                     type="text"
                     placeholder='+34123456789'
+                    maxLength={13}
                     value={telefon}
                     onChange={(e) => setTelefon(e.target.value)}
                 />
@@ -124,10 +153,10 @@ export const Register = () =>{
                     onChange={(e) => setAdreca(e.target.value)}
                 />
 
-                <label>Province</label>
+                <label>Location</label>
                 <input
                     type="text"
-                    placeholder='Province'
+                    placeholder='Location'
                     required
                     pattern='^[A-Za-z ]+$'
                     value={poblacio}
@@ -140,11 +169,12 @@ export const Register = () =>{
                     placeholder='12345'
                     required
                     pattern='^[0-9]{5}$'
+                    maxLength={5}
                     value={codiPostal}
                     onChange={(e) => setCodipostal(e.target.value)}
                 />
-
-                <button type="submit">Register</button>
+                
+                <Link to="/RegisterValidation"><button type="submit">Register</button></Link>
 
                 {message && <p>{message}</p>}
 

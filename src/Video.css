@@ -158,9 +158,13 @@ a {
 
 .FleetContainer {
     width: 100%;
-    min-height: 1100px;
+    padding: 60px 20px; /* Espaciado arriba/abajo y a los lados */
     background: rgba(255, 255, 255, 0.29);
-    padding-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;      /* Esto permite que las cartas bajen si no caben */
+    justify-content: center; /* Centra las cartas horizontalmente */
+    gap: 40px;            /* Espacio uniforme entre cartas (horizontal y vertical) */
+    box-sizing: border-box;
 }
 
 .FleetContainer div {
@@ -197,73 +201,130 @@ a {
         font-size: 20px;
     }
 
-    .FleetContainer div {
-        column-gap: 30px;
-        margin-left: 20px;
+    .FleetContainer {
+        gap: 25px; 
     }
 }
 
 /* ---------------- MOBILE ---------------- */
+/* ---------------------------------------------------------
+   REDISEÑO MOBILE TOTAL (Media Query Unificada)
+--------------------------------------------------------- */
 
 @media (max-width: 768px) {
+    
+    /* 1. Ajustes del Hero / Video */
     .container {
-        min-height: 100vh;
+        min-height: 90vh; /* Ocupa casi toda la pantalla */
+        padding: 0 20px;
         justify-content: center;
-        padding: 0 5%;
         text-align: center;
     }
 
     .text {
         margin-top: 0;
-        align-items: center;
+        align-items: center; /* Centra el contenido del hero */
         max-width: 100%;
     }
 
     .text h1 {
-        font-size: 36px;
+        font-size: 32px; /* Tamaño legible en móvil */
+        line-height: 1.2;
     }
 
     .text h2 {
-        font-size: 22px;
+        font-size: 20px;
+        font-weight: 400;
     }
 
     .text p {
         font-size: 18px;
+        background: rgba(0,0,0,0.3); /* Fondo sutil para leer mejor sobre el video */
+        padding: 10px 20px;
+        border-radius: 50px;
     }
 
+    /* 2. Sección "Rent With Us" */
     .rentWithUsContainer {
-        height: auto;
-        padding: 20px;
+        margin-top: 70px;
+        padding: 0 15px;
     }
 
     .rentWithUsContainer h1 {
-        font-size: 32px;
+        font-size: 28px;
+        text-align: center;
     }
 
-    .theReassons {
-        min-height: auto;
+    /* 3. Las Reasons (Tarjetas) */
+    .theImages {
+        display: grid; 
+        grid-template-columns: 1fr 1fr; /* Dos columnas en móviles medianos */
+        gap: 15px;
         padding: 20px;
     }
 
-    .theImages {
-        flex-direction: column;
-        gap: 20px;
+    /* Si el móvil es muy pequeño, una sola columna */
+    @media (max-width: 480px) {
+        .theImages {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* 4. Título de la Flota */
+    .FleetContainerTitle {
+        height: 100px;
+        text-align: center;
     }
 
     .FleetContainerTitle h1 {
-        font-size: 36px;
-        align-items: center; /*para que se centre en movil*/
+        font-size: 32px;
+        width: 100%;
+        text-align: center;
     }
-
+    /* --- CONTENEDOR FLOTA: Recuperar imágenes --- */
     .FleetContainer {
-        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 40px 20px;
+        min-height: auto; 
     }
 
+    /* ¡IMPORTANTE! Esto asegura que los enlaces ocupen espacio y se vean las fotos */
+    .FleetContainer a {
+        display: block; 
+        width: 90%;          /* Que ocupe casi todo el ancho del móvil */
+        max-width: 350px;    /* Pero que no se estire infinito */
+        margin: 0 auto;      /* Centra el enlace */
+        text-decoration: none;
+    }
+
+    /* Esto anula tus DIVs de "filas" de escritorio para que no molesten */
     .FleetContainer div {
-        flex-direction: column;
-        margin-left: 0;
+        display: contents;   /* Ignora el div, pero permite que los hijos (a) se vean */
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Aseguramos que la FleetCard y su imagen tengan tamaño */
+    .FleetCard img, 
+    .FleetContainer img {
+        display: block;
+        width: 100%;           /* Ocupa todo el ancho disponible */
+        aspect-ratio: 16 / 9;  /* Esto le da ALTURA automática y obligatoria */
+        object-fit: cover;     /* Evita que la foto se estire feo */
+        border-radius: 8px;    /* Opcional: para que se vea más moderna */
+    }
+
+    /* 6. Botones (Más grandes para dedos) */
+    .UsButton {
+        width: 180px;
+        height: 50px;
+        font-size: 18px;
+        display: flex;
         align-items: center;
-        row-gap: 30px;
+        justify-content: center;
     }
 }
 
@@ -294,3 +355,4 @@ a {
         transform: translateX(-250px);
     }
 }
+

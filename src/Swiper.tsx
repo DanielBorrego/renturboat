@@ -5,6 +5,7 @@
     import Jetski from './slideCards/jetski.png';
     import Mark from './slideCards/mark.jpg';
     import Reviews from './slideCards/revire.jpg';
+    import { Link } from 'react-router-dom';
     // No olvides importar los estilos
 
     import './Swiper.css'; 
@@ -20,11 +21,11 @@
     export const MyGallery = () => {
 
     const slides = [
-        { img: Jetski, text: "ROUTES" },
-        { img: Reviews, text: "EXPERIENCES" },
-        { img: Contact, text: "CONTACT US" },
-        { img: Mark, text: "WHERE TO FIND US" },
-        { img: AboutUS, text: "ABOUT US" },
+        { img: Jetski, text: "ROUTES", link: "/Routes"},
+        { img: Reviews, text: "EXPERIENCES",link: "/Experiences" },
+        { img: Contact, text: "CONTACT US",link: "/Contact" },
+        { img: Mark, text: "WHERE TO FIND US",link: "/FindUs" },
+        { img: AboutUS, text: "ABOUT US",link: "/AboutUs" },
     ];
 
         return (
@@ -51,10 +52,10 @@
                 >
                     {slides.map((slide, index) => (
                         <SwiperSlide key={index} className="card-slide">
-                            <a href="">
+                            <Link to={slide.link}>
                                 <img src={slide.img} alt={slide.text} />
                                 <p>{slide.text}</p>
-                            </a>
+                            </Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>

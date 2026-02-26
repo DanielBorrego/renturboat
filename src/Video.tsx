@@ -54,14 +54,11 @@ export const ContVideo = () =>{
                 <h1>OUR FLEET</h1>
             </div>
             <div id='fleet' className='FleetContainer'>
-                <div>
-                    <a href="#a"><FleetCard img={Nolicence} name="WITH LICENCE"/></a>
-                    <a href="#a"><FleetCard img={Licence} name="WITHOUT LICENCE"/></a>
-                </div>
-                <div>
-                    <a href="#a"><FleetCard img={Sailing} name="SAIL BOATS"/></a>
-                    <a href="#a"><FleetCard img={Yatch} name="YATCH"/></a>
-                </div>
+                {/* Ajuste de divs, quitando los dos divs que separaban las filas */}
+                <a href="#a"><FleetCard img={Nolicence} name="WITH LICENCE"/></a>
+                <a href="#a"><FleetCard img={Licence} name="WITHOUT LICENCE"/></a>
+                <a href="#a"><FleetCard img={Sailing} name="SAIL BOATS"/></a>
+                <a href="#a"><FleetCard img={Yatch} name="YATCH"/></a>
             </div>
             {/*https://www.youtube.com/watch?v=rmb7N-SMO20 */} {/* https://codesandbox.io/p/sandbox/x44ymw?file=%2Fsrc%2FApp.jsx%3A23%2C27 */}
             <MyGallery />
