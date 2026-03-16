@@ -13,8 +13,11 @@ import Licence from './fleetCards/licence.jpg';
 import Sailing from './fleetCards/sailing.jpg';
 import Yatch from './fleetCards/yatch.avif';
 import {MyGallery} from './Swiper';
+import { Link } from 'react-router-dom';
+import { forwardRef, useRef } from "react";
 
 export const ContVideo = () =>{
+        const ref = useRef(null);
     return(
         <div>
             <div className="container">
@@ -53,12 +56,12 @@ export const ContVideo = () =>{
             <div className='FleetContainerTitle'>
                 <h1>OUR FLEET</h1>
             </div>
-            <div id='fleet' className='FleetContainer'>
+            <div id='fleet' className='FleetContainer' ref={ref}>
                 {/* Ajuste de divs, quitando los dos divs que separaban las filas */}
-                <a href="#a"><FleetCard img={Nolicence} name="WITH LICENCE"/></a>
-                <a href="#a"><FleetCard img={Licence} name="WITHOUT LICENCE"/></a>
-                <a href="#a"><FleetCard img={Sailing} name="SAIL BOATS"/></a>
-                <a href="#a"><FleetCard img={Yatch} name="YATCH"/></a>
+                <Link to="/boats/licence"><FleetCard img={Licence} name="WITH LICENCE"/></Link>
+                <Link to="/boats/no-licence"><FleetCard img={Nolicence} name="WITHOUT LICENCE"/></Link>
+                <Link to="/boats/sailing"><FleetCard img={Sailing} name="SAIL BOATS"/></Link>
+                <Link to="/boats/yatch"><FleetCard img={Yatch} name="YATCH"/></Link>
             </div>
             {/*https://www.youtube.com/watch?v=rmb7N-SMO20 */} {/* https://codesandbox.io/p/sandbox/x44ymw?file=%2Fsrc%2FApp.jsx%3A23%2C27 */}
             <MyGallery />

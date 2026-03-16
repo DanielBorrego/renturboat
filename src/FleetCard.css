@@ -48,3 +48,39 @@
     color: #FFFF;
     z-index: 1;
 }
+
+@media (max-width: 768px) {
+.Container{
+    width: calc(100% - 32px); /* deja espacio lateral en móviles */
+    max-width: 565px;         /* no crecer más que el diseño desktop */
+    height: auto;
+    aspect-ratio: 565 / 437;  /* mantiene la proporción de la tarjeta */
+    display: flex;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 16px;      /* un poco más pequeño en móviles */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    border: 0;
+    transition: transform 0.25s, box-shadow 0.25s;
+    margin: 16px auto;        /* centra la tarjeta en pantallas pequeñas */
+}
+.Container img{
+    display: block;
+        width: 100%;           /* Ocupa todo el ancho disponible */
+        aspect-ratio: 16 / 9;  /* Esto le da ALTURA automática y obligatoria */
+        object-fit: cover;     /* Evita que la foto se estire feo */
+        border-radius: 8px;    /* Opcional: para que se vea más moderna */
+        z-index: 0;
+}
+    .Container p {
+    margin-left: 50px;
+    width: 100px;
+    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: black;
+    z-index: 1;
+}
+}

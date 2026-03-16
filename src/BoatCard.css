@@ -1,0 +1,111 @@
+/* ── Individual boat card ── */
+
+.boat-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.boat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+}
+
+/* Image wrapper */
+.boat-card__img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.boat-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.boat-card:hover .boat-card__img img {
+    transform: scale(1.05);
+}
+
+/* Info section */
+.boat-card__info {
+    padding: 1rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.boat-card__name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a2e;
+}
+
+.boat-card__model {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+}
+
+.boat-card__details {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 0.25rem;
+}
+
+.boat-card__length,
+.boat-card__licence {
+    background: #eef2ff;
+    color: #3b52a5;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.boat-card__rating {
+    color: #f5a623;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.boat-card__price {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0.35rem 0 0;
+}
+
+.boat-card__price span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #888;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+    .boat-card__info {
+        padding: 0.75rem 0.9rem;
+    }
+    .boat-card__name {
+        font-size: 1rem;
+    }
+    .boat-card__price {
+        font-size: 1.05rem;
+    }
+}

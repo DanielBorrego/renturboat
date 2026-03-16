@@ -1,12 +1,30 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Logo } from './Logo'; 
 import './NavBar.css';
 import { Compra } from './Compra'
 
 export const NavVar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
+    const [userName, setUserName] = useState <String|null>(null);
+    useEffect(() => {
+        fetch("http://localhost/Proyecto/Session.php", {
+            credentials: "include"
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.logged) {
+                setUserName(data.name);
+            }
+        });
+    }, []);
+    const annarFleer = () => {
+            const element = document.getElementById("fleet");
+            if(element){
+                element.scrollIntoView({behavior:'smooth'});
+            }
+        }
+        
     return (
         <nav className="navbar">
         {/* Contenedor del Logo */}
@@ -18,9 +36,9 @@ export const NavVar = () => {
         <ul className="nav-links">
             <li><Link to="/">Home</Link></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#boats">Boats</a></li>
+            <li onClick={annarFleer}>Boats</li>
             <li><a href="#experiences">Experiences</a></li>
-            <li><a href="#routes">Routes</a></li>
+            <li><Link to="/Routes">Routes</Link></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
 
@@ -34,7 +52,11 @@ export const NavVar = () => {
             
             {isOpen && (
                 <div className="dropdown-menu">
-                <p className='dropdown-item'><Link to="/login" onClick={() => setIsOpen(false)}>Login / Register</Link></p>
+                <p className='dropdown-item'>{userName ? (
+                    <Link to="/LogUser"><span>{userName}</span></Link>
+                ) : (
+                    <Link to="/login">Log In/Register</Link>
+                )}</p>
                 <p className="dropdown-item"><a href="#rents">My Rents</a></p>
                 </div>
             )}

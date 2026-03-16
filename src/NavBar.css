@@ -1,10 +1,11 @@
-    a {
+a {
     text-decoration: none;
-    color: inherit; /* Opcional: mantiene el color del texto actual */
+    color: inherit;
 }
 
-    .navbar {
-    position: fixed; /* Cambiamos sticky por fixed */
+/* NAVBAR BASE */
+.navbar {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -15,73 +16,71 @@
     align-items: center;
     padding: 0 40px;
     border-bottom: 1px solid #eee;
-    z-index: 1000; /* Mantiene el nav por encima de todo */
+    z-index: 1000;
     font-family: sans-serif;
     background-color: rgba(244, 245, 247, 0.95);
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho del 100% */
+    box-sizing: border-box;
 }
 
-    .nav-logo {
+.nav-logo {
     width: 50px;
     height: auto;
     cursor: pointer;
-    }
+}
 
-    .nav-links {
+.nav-links {
     display: flex;
     list-style: none;
     gap: 30px;
     margin: 0;
     padding: 0;
-    }
+}
 
-    .nav-links a {
-    text-decoration: none;
+.nav-links a {
     color: #000;
     font-size: 0.95rem;
     font-weight: 500;
-    }
+}
 
-    .nav-right {
+.nav-right {
     display: flex;
     align-items: center;
     gap: 25px;
-    }
+}
 
-    .lang-text {
-        color: black;
+.lang-text {
+    color: black;
     font-size: 0.9rem;
     font-weight: 500;
-    }
+}
 
-    /* El botón ovalado gris de tu dibujo */
-    .login-btn {
-    background-color:  rgba(244, 245, 247, 0.25);
+.login-btn {
+    background-color: rgba(244, 245, 247, 0.25);
     border: none;
-    border-radius: 25px; /* Hace el efecto de píldora/óvalo */
+    border-radius: 25px;
     padding: 5px 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     transition: background 0.3s;
-    }
+}
 
-    .login-btn:hover {
+.login-btn:hover {
     background-color: #d0d0d0;
-    }
+}
 
-    .cart-icon {
+.cart-icon {
     width: 20px;
     height: 20px;
     object-fit: contain;
-    }
+}
 
-    .dropdown-container {
-        color: black;
+.dropdown-container {
+    color: black;
     position: relative;
-    }
+}
 
-    .dropdown-menu {
+.dropdown-menu {
     position: absolute;
     top: 45px;
     right: 0;
@@ -91,16 +90,77 @@
     width: 180px;
     border-radius: 8px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-    }
+}
 
-    .dropdown-item {
+.dropdown-item {
     margin: 0;
     padding: 8px 0;
     font-size: 0.85rem;
     cursor: pointer;
     color: black;
+}
+
+.dropdown-item p a:hover {
+    color: rgb(2, 60, 148);
+}
+
+/* ----------------------------- */
+/* 📱 RESPONSIVE BREAKPOINTS     */
+/* ----------------------------- */
+
+/* Tablets grandes (≤ 1024px) */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 25px;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+/* Tablets y móviles horizontales (≤ 768px) */
+@media (max-width: 768px) {
+    .nav-right {
+        gap: 15px;
     }
 
-    .dropdown-item p a:hover {
-    color: rgb(2, 60, 148);
+    .login-btn {
+        padding: 5px 15px;
     }
+}
+
+/* Móviles pequeños (≤ 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 15px;
+        height: 50px;
+    }
+
+    .nav-logo {
+        width: 40px;
+    }
+
+    .login-btn {
+        padding: 4px 12px;
+        font-size: 0.8rem;
+    }
+
+    .lang-text {
+        font-size: 0.8rem;
+    }
+
+    .cart-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+/* Ocultar elementos específicos en móviles */
+@media (max-width: 768px) {
+    .nav-links li:nth-child(1), /* Home */
+    .nav-links li:nth-child(2), /* About Us */
+    .nav-links li:nth-child(5)  /* Routes */
+    {
+        display: none;
+    }
+}
+

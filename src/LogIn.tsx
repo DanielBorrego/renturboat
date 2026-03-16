@@ -7,6 +7,8 @@ export const LogIn = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const passwordInputRef = useRef<HTMLInputElement>(null);
+    const [password, setPassword] = useState('');
+
 
     const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
     const phoneRegex = /^[0-9]{9,15}$/;
@@ -30,6 +32,33 @@ export const LogIn = () => {
             }
         }
     };
+    const handleLogin = async () => {
+        setError('');
+
+        const res = await fetch("http://localhost/Proyecto/Login.php", {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                contact,
+                password
+            })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            setError(data.error || "Login failed");
+            return;
+        }
+
+        // Guardar nombre en localStorage (opcional)
+        localStorage.setItem("userName", data.name);
+
+        // Redirigir o actualizar UI
+        window.location.href = "/";
+    };
+
 
     useEffect(() => {
         if (showPassword && passwordInputRef.current) {
@@ -69,9 +98,12 @@ export const LogIn = () => {
                             ref={passwordInputRef}
                             type="password"
                             name="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             placeholder="Enter your password"
                             required
                         />
+                        <button onClick={handleLogin}>Log In</button>
                     </div>
                 )}
             </div>

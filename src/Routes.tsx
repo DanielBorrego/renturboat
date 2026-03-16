@@ -1,5 +1,6 @@
 import './Routes.css'
 import mapButton from './MapButton.png'
+import { Link } from 'react-router-dom';
 import thorIsland from './RoutesImages/thorIsland.avif'
 import oro from './RoutesImages/oro.png'
 import monks from './RoutesImages/monks.png'
@@ -18,9 +19,8 @@ import port2 from './RoutesImages/port2.png'
 
 export const RoutesBoats = () => {
     return (
-        <div className="container">
-            <div className="north">
-                <h1>NORTHERN ROUTES</h1>
+        <div className="Container-Rouetes">
+                <div className='Titles'><h1>NORTHERN ROUTES</h1></div>
 
                 <div className="right">
                     <div className="images">
@@ -93,10 +93,8 @@ export const RoutesBoats = () => {
                         </p>
                     </div>
                 </div>
-            </div>
 
-            <div className="south">
-                <h1>SOUTHERN ROUTES</h1>
+                <div className='Title'><h1>SOUTHERN ROUTES</h1></div>
 
                 <div className="right">
                     <div className="images">
@@ -118,7 +116,7 @@ export const RoutesBoats = () => {
                     </div>
                 </div>
 
-                <div className="left">
+                <div className="right">
                     <div className="images">
                         <img src={lighthousemonks} alt="imagen 3 sur" />
                     </div>
@@ -138,7 +136,7 @@ export const RoutesBoats = () => {
                     </div>
                 </div>
 
-                <div className="left">
+                <div className="right">
                     <div className="images">
                         <img src={port} alt="imagen 5 sur" />
                     </div>
@@ -157,10 +155,9 @@ export const RoutesBoats = () => {
                         <p>A deep, calm inlet surrounded by dense forests of ancient Aleppo pines. The trees grow so close to the water that the entire bay looks like a giant emerald. It is the best place in the North to repair hulls and gather fresh timber.</p>
                     </div>
                 </div>
-            </div>
-            <a href="./cartaNautica" target="_blank" rel="noopener noreferrer">
+            <Link to="/nautical-charter" className="map-button-link">
                 <img src={mapButton} alt="map button" className="buttonImg" />
-            </a>
+            </Link>
         </div>
     )
 }

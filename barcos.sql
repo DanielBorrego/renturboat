@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS renturboat;
 CREATE DATABASE IF NOT EXISTS renturboat;
 USE renturboat;
 
@@ -13,7 +14,18 @@ CREATE TABLE barcos (
         'PER',
         'Patro de Yate'
     ) NOT NULL,
-    preu INT NOT NULL
+    preu INT NOT NULL,
+    eslora FLOAT NOT NULL,
+    manga FLOAT NOT NULL,
+    calat FLOAT NOT NULL,
+    descripcio VARCHAR(1000),
+    imatge VARCHAR(255),
+    tipus ENUM(
+        'No licence',
+        'With licence',
+        'Sailboat',
+        'Yacht'
+    )
 );
 
 CREATE TABLE client (
@@ -60,4 +72,15 @@ CREATE TABLE resenya (
     puntuacio INT,
     FOREIGN KEY (client_dni) REFERENCES client(DNI),
     FOREIGN KEY (barco_id) REFERENCES barcos(id)
+);
+
+CREATE TABLE temp_registrations(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mail VARCHAR(100) NOT NULL,
+    data_json JSON NOT NULL,
+    code_hash VARCHAR(255) NOT NULL,
+    data_expiracio DATETIME NOT NULL,
+    intents INT NOT NULL DEFAULT 0,
+    codigo_usado BOOLEAN NOT NULL DEFAULT FALSE,
+    creat DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
