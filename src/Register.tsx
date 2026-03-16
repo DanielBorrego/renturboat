@@ -17,7 +17,7 @@ export const Register = () =>{
     const [poblacio, setPoblacio] = useState("");
     const [codiPostal, setCodipostal] = useState("");
     const [message, setMessage] = useState("")
-    const [contactError, setContactError] = useState('');
+    const [contactError] = useState(''); //setContactError
     const passwordInputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
